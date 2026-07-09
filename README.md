@@ -126,7 +126,9 @@ BCA Data Science Student
 Python | SQL | Tableau | Power BI | Frontend Developer
 
 GitHub: https://github.com/blikitha11-gif
+
 LinkedIn: https://www.linkedin.com/in/likitha-bandaru-0614bb341
+
 Email:blikitha11@gmail.com
 
 ---
