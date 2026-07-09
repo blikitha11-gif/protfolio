@@ -8,10 +8,7 @@ This portfolio serves as my professional digital presence and highlights my jour
 
 ## 🌐 Live Demo
 
-> Add your GitHub Pages or deployed website link here.
-
-Example:
-https://yourusername.github.io/portfolio/
+https://blikitha11-gif.github.io/protfolio/
 
 ---
 
