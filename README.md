@@ -123,7 +123,7 @@ Example:
 
 BCA Data Science Student
 
-Python | SQL | Tableau | Power BI | Frontend Developer
+Python | SQL | Tableau | Excel | Frontend Developer
 
 GitHub: https://github.com/blikitha11-gif
 
