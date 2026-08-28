@@ -25,17 +25,21 @@ body {
     background: var(--cream);
     color: var(--ink);
     overflow-x: hidden;
+    padding-top: 62px;
 }
 
 /* ── NAVBAR ── */
 nav {
     background: var(--ink);
     padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
     border-bottom: 2px solid var(--terracotta);
 }
+
 
 .nav-brand {
     font-family: 'Playfair Display', serif;
@@ -330,52 +334,196 @@ section {
     font-size: 0.8rem;
 }
 
-/* ── SKILLS ── */
+/* ── TECHNICAL SKILLS ── */
 #skills {
     background: var(--section-alt);
+    padding: 62px 0;
 }
 
-.skill-chip {
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-top: 1.35rem;
+}
+
+.skill-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(196, 96, 58, 0.12);
+    border-radius: 14px;
+    padding: 1rem 1.2rem 1.05rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.045);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(196, 96, 58, 0.28);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.07);
+}
+
+.skill-card-header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    background: var(--card-bg);
-    border-radius: 10px;
-    padding: 1rem 1.3rem;
-    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
-    transition: transform 0.2s, box-shadow 0.2s;
-    border-bottom: 3px solid transparent;
+    gap: 0.75rem;
 }
 
-.skill-chip:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(196, 96, 58, 0.15);
-    border-bottom-color: var(--terracotta);
+.skill-card-header h3 {
+    margin: 0;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--terracotta);
 }
 
-.skill-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    background: var(--section-alt);
+.category-icon {
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
-    flex-shrink: 0;
+    border-radius: 9px;
+    background: #fffaf5;
+    border: 1px solid rgba(196, 96, 58, 0.2);
+    color: var(--terracotta);
 }
 
-.skill-chip h6 {
-    margin: 0;
-    font-size: 0.88rem;
-    font-weight: 600;
+.category-icon span {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.skill-divider {
+    height: 1px;
+    background: rgba(26, 20, 16, 0.09);
+    margin: 0.7rem 0 0.8rem;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.skill-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 42px;
+    padding: 0.42rem 0.8rem;
+    background: #fff;
+    border: 1px solid rgba(26, 20, 16, 0.08);
+    border-radius: 8px;
     color: var(--ink);
+    font-size: 0.82rem;
+    font-weight: 500;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.035);
+    transition: all 0.2s ease;
 }
 
-.skill-chip p {
-    margin: 0;
-    font-size: 0.72rem;
-    color: var(--muted);
+.skill-chip:hover {
+    transform: translateY(-2px);
+    border-color: rgba(196, 96, 58, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.skill-chip i {
+    width: 25px;
+    text-align: center;
+    font-size: 1.45rem;
+    line-height: 1;
+}
+
+.powerbi-icon,
+.powerquery-icon,
+.excel-icon,
+.tableau-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 3px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.powerbi-icon {
+    color: #f2c811;
+    font-size: 1.2rem;
+}
+
+.powerquery-icon {
+    color: #2e9b45;
+    font-size: 1.2rem;
+}
+
+.excel-icon {
+    background: #217346;
+    color: #fff;
+    font-size: 0.62rem;
+}
+
+.tableau-icon {
+    color: #e97627;
+    border: 1px solid #e97627;
+    font-size: 0.75rem;
+}
+
+.skill-card-wide {
+    grid-column: 1 / -1;
+}
+
+@media (min-width: 769px) {
+    #skills .s-label {
+        margin-bottom: 0.25rem;
+    }
+
+    #skills .s-title {
+        margin-bottom: 0.35rem;
+    }
+
+    #skills .divider {
+        margin-bottom: 1.15rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-card-wide {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    #skills {
+        padding: 50px 0;
+    }
+
+    .skill-card {
+        padding: 0.9rem 1rem;
+    }
+
+    .skill-card-header h3 {
+        font-size: 0.84rem;
+    }
+
+    .category-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .skill-chip {
+        min-height: 35px;
+        font-size: 0.67rem;
+        padding: 0.3rem 0.52rem;
+    }
 }
 
 /* ── PROJECTS ── */
@@ -464,52 +612,14 @@ section {
 .btn-view:hover {
     background: var(--terracotta);
     color: #fff;
+    position: relative;
+    z-index: 10;
 }
 
-/* ── CERTIFICATIONS ── */
-#certifications {
-    background: var(--section-alt);
-}
-
-.cert-card {
-    background: var(--card-bg);
-    border-radius: 10px;
-    padding: 1.3rem 1.5rem;
-    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    transition: transform 0.2s;
-}
-
-.cert-card:hover {
-    transform: translateY(-3px);
-}
-
-.cert-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, var(--terracotta), var(--gold));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    flex-shrink: 0;
-}
-
-.cert-card h6 {
-    margin: 0;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--ink);
-}
-
-.cert-card p {
-    margin: 0;
-    font-size: 0.76rem;
-    color: var(--muted);
-}
+#certifications { background: var(--section-alt);
+ } 
+ .cert-card
+  { background: var(--card-bg); border-radius: 10px; padding: 1.3rem 1.5rem; box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06); display: flex; align-items: center; gap: 14px; transition: transform 0.2s; } .cert-card:hover { transform: translateY(-3px); } .cert-icon { width: 44px; height: 44px; border-radius: 10px; background: linear-gradient(135deg, var(--terracotta), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; } .cert-card h6 { margin: 0; font-size: 0.9rem; font-weight: 600; color: var(--ink); } .cert-card p { margin: 0; font-size: 0.76rem; color: var(--muted); }
 
 /* ── ACHIEVEMENTS ── */
 .ach-card {
